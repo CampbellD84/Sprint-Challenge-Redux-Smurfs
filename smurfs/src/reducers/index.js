@@ -4,7 +4,10 @@
 import { 
   SMURF_FETCH_BEGIN, 
   SMURF_FETCH_SUCCESS, 
-  SMURF_FETCH_FAILURE 
+  SMURF_FETCH_FAILURE,
+  SMURF_ADD_BEGIN,
+  SMURF_ADD_SUCCESS,
+  SMURF_ADD_FAILURE 
 } from "../actions";
 
 /*
@@ -22,7 +25,8 @@ import {
 const initialState = {
   smurfs: [],
   fetchingSmurfs: false,
-  error: null
+  error: null,
+  addingSmurf: false
 }
 
 /*
@@ -49,6 +53,22 @@ export default function root(state = initialState, action) {
     case SMURF_FETCH_FAILURE:
       return {
         ...state,
+        error: action.payload
+      };
+    case SMURF_ADD_BEGIN:
+      return {
+        ...state
+      };
+    case SMURF_ADD_SUCCESS:
+      return {
+        ...state,
+        addingSmurf: true,
+        smurfs: [...action.payload]
+      };
+    case SMURF_ADD_FAILURE:
+      return {
+        ...state,
+        addingSmurf: false,
         error: action.payload
       };
     default:
