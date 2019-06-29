@@ -7,7 +7,7 @@ import {
   SMURF_FETCH_FAILURE,
   SMURF_ADD_BEGIN,
   SMURF_ADD_SUCCESS,
-  SMURF_ADD_FAILURE 
+  SMURF_ADD_FAILURE
 } from "../actions";
 
 /*

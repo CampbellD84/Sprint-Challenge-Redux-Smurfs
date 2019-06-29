@@ -45,6 +45,7 @@ class App extends Component {
     })
   }
 
+
   render() {
     return (
       <div className="App">
@@ -52,14 +53,8 @@ class App extends Component {
         <div>Welcome to your Redux version of Smurfs!</div>
         <div>Start inside of your `src/index.js` file!</div>
         <div>Have fun!</div> */}
-        {this.props.smurfs.map(smurf => (
-          <div className="smurf" key={smurf.id}>
-            <h3>{smurf.name}</h3>
-            <p>{`Age: ${smurf.age} years old`}</p>
-            <p>{`Height: ${smurf.height} centimeters tall`}</p>
-          </div>
-        ))}
         <div className="smurf-form">
+          <h2>Add Smurf</h2>
           <form onSubmit={this.handleAddSmurf}>
             <label>
               Name
@@ -90,6 +85,15 @@ class App extends Component {
             />
             <button onClick={this.handleAddSmurf}>Add Smurf</button>
           </form>
+        </div>
+        <div className="smurf-container">
+          {this.props.smurfs.map(smurf => (
+            <div className="smurf" key={smurf.id}>
+              <h3>{smurf.name}</h3>
+              <p>{`Age: ${smurf.age} years old`}</p>
+              <p>{`Height: ${smurf.height} centimeters tall`}</p>
+            </div>
+          ))}
         </div>
       </div>
     );
