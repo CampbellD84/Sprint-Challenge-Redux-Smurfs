@@ -23,8 +23,17 @@ In this challenge, you are to build the Smurfs village once again, only this tim
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+An Action is a bundle of information (Object) that contains a properties called type and payload. The type property is a string that describes what happened and is required in an action. The payload property carries whatever data is needed and is optional.
+ A reducers is basically a PURE function that takes in an Action and the current state from the Redux Store as arguments and returns an Object that represents the state. The Store is basically a large Object that when initialized and set up will hold the state of the entire application. The Store is known as a 'single source of truth' because it is where all of the state is kept in a redux app. Also state is read only and can only be changed through the use of an action.
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+Application state is data from an entire application whereas Component state is just within the Component. A good time to use Application state is when every part of the app needs to access that data. A good time to use Component state is when just a single component needs access to said data.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+Redux-thunk is a piece of middleware that allows us to make asynchronous API calls from action creators. The unidirectional flow from an action to a reducer is synchronous by default in Redux. Redux-thunk will look at an action creator and check to see what is being returned. If the thing being returned is an action, it gets sent to the reducer. If it is a function (Thunk), it will call the function and pass the dispatch function as an argument.
 
 ## Project Set Up
 
